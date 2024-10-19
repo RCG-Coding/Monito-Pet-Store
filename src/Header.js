@@ -10,8 +10,8 @@ const Header = () => {
   };
 
   return (
-    <header className="py-3">
-      <div className="container mx-auto flex items-center justify-between">
+    <header className="py-6">
+      <div className="container mx-auto flex px-24 items-center justify-between">
         {/*Mobile Menu Icon*/}
         <div className="block lg:hidden">
           <button onClick={toggleMobileMenu}>
@@ -39,16 +39,16 @@ const Header = () => {
 
         {/* Desktop Navigation Links */}
         <div className="hidden lg:flex space-x-6 justify-between">
-          <Link to="/" className="hover:text-blue-500">
+          <Link to="/" className="hover:text-blue-500 text-blue-deep font-bold">
             Home
           </Link>
-          <Link to="/category" className="hover:text-blue-500">
+          <Link to="/category" className="hover:text-blue-500 text-blue-deep font-bold">
             Category
           </Link>
-          <Link to="/about" className="hover:text-blue-500">
+          <Link to="/about" className="hover:text-blue-500 text-blue-deep font-bold">
             About
           </Link>
-          <Link to="/contact" className="hover:text-blue-500">
+          <Link to="/contact" className="hover:text-blue-500 text-blue-deep font-bold">
             Contact
           </Link>
         </div>
