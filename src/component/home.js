@@ -107,7 +107,10 @@ const Home = () => {
           backgroundPosition: 'center',
         }}
       >
+        <div className='md:px-24'>
         <Header />
+        </div>
+        
         <div>
           <h1 className="text-blue-deep text-5xl md:text-6xl ml-5 mt-12 md:ml-24 md:mt-20 font-bold">One More Friend</h1>
           <h3 className="text-blue-deep text-3xl ml-5 md:text-5xl md:ml-24 font-bold mt-4">Thousands More Fun!</h3>
