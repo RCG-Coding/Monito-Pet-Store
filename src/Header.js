@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <header className="pt-6 lg:pt-8">
       <div className="container mx-auto flex lg:px-24 items-center justify-between">
-        {/*Mobile Menu Icon*/}
+
         <div className="block lg:hidden">
           <button onClick={toggleMobileMenu}>
             <svg
@@ -32,12 +32,10 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Logo (Centered in Mobile View) */}
         <div className="lg:mx-0 mx-auto">
           <img src={logo} alt='company logo' />
         </div>
 
-        {/* Desktop Navigation Links */}
         <div className="hidden lg:flex space-x-6 justify-between">
           <Link to="/" className="hover:text-blue-500 text-blue-deep font-bold">
             Home
@@ -53,9 +51,7 @@ const Header = () => {
           </Link>
         </div>
 
-        {/* Search Bar and Buttons (Desktop Only) */}
         <div className="hidden lg:flex items-center space-x-4">
-          {/* Search Bar */}
           <div className="relative">
             <input
               type="text"
@@ -78,8 +74,6 @@ const Header = () => {
             </svg>
           </div>
 
-
-          {/* Buttons (desktop only) */}
           <button className="bg-blue-950 text-white px-4 py-2 rounded-full">
             Join the community
           </button>
@@ -88,7 +82,6 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Search Icon */}
         <div className="block lg:hidden">
         <button>
     <svg
@@ -109,7 +102,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu (with navigation fields) */}
       {mobileMenuOpen && (
         <div className="lg:hidden flex flex-col space-y-2 px-4 py-2">
           <nav className=""></nav>
