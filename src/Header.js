@@ -10,8 +10,8 @@ const Header = () => {
   };
 
   return (
-    <header className="py-6">
-      <div className="container mx-auto flex px-24 items-center justify-between">
+    <header className="pt-6 lg:pt-8">
+      <div className="container mx-auto flex lg:px-24 items-center justify-between">
         {/*Mobile Menu Icon*/}
         <div className="block lg:hidden">
           <button onClick={toggleMobileMenu}>
