@@ -61,6 +61,7 @@ const Category = () => {
         <Header />
       </div>
 
+      {/* <div className='md:px-24 mt-10' */}
       <div className='md:px-24 mt-10'>
         {/* create baner and giding path */}
         <div className=''>
