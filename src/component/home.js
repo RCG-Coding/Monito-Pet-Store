@@ -18,15 +18,10 @@ import image16 from '../images/image16.png';
 import image17 from '../images/image17.png';
 import image18 from '../images/image18.png';
 import axios from 'axios';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css'; 
-import 'swiper/css/navigation'; 
 
 const Home = () => {
-  const [pets, setPets] = useState([]); // Store fetched pets
-  const [showSwiper1, setShowSwiper1] = useState(false); 
-  const [products, setProducts] = useState([]); 
-  const [showSwiper2, setShowSwiper2] = useState(false); 
+  const [pets, setPets] = useState([]); 
+  const [products, setProducts] = useState([]);  
   const [bgImage1, setBgImage1] = useState(image5);
   const [bgImage2, setBgImage2] = useState(image8);
 
@@ -86,15 +81,6 @@ const Home = () => {
   };
 
   }, []);
-
-  
-  const loadMorePets = () => {
-    setShowSwiper1(true); 
-  };
-
-  const loadMoreProducts = () => {
-    setShowSwiper2(true);
-  };
 
   return (
     <div className='justify-center items-center'>
@@ -157,8 +143,7 @@ const Home = () => {
           <div className="flex flex-row justify-between items-center">
             <p className="text-lg text-blue-950 font-bold">Take a look at some of our pets</p>
             <button
-              className="hidden md:flex text-blue-600 items-center border-2 rounded-full py-1 px-2 hover:text-blue-950 hover:border-blue-950"
-              onClick={loadMorePets}
+              className="hidden md:flex text-blue-600 items-center border-2 rounded-full py-1 px-2 hover:text-blue-950 hover:border-blue-950"              
             >
               View More
               <svg
@@ -178,7 +163,7 @@ const Home = () => {
             </button>
           </div>
 
-          {/* Static Pets Grid: Responsive layout with 2 column (sm), 4 columns (md/lg) */}
+          {/*  Pets */}
           {pets.length > 0 ? (
             <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6 bg-gray-100 p-2 rounded-lg">
               {pets.slice(0, 8).map((pet) => (
@@ -199,30 +184,8 @@ const Home = () => {
             <p>Loading pets...</p>
           )}
 
-          {/* Swiper for additional pets, only shown after "View More" is clicked */}
-          {showSwiper1 && (
-            <div className="mt-8">
-              <Swiper spaceBetween={16} slidesPerView={1} onSwiper={(swiper) => console.log(swiper)}>
-                {pets.slice(8).map((pet) => (
-                  <SwiperSlide key={pet.id}>
-                    <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-                      <img src={pet.image} alt='petImage' className="w-full h-48 object-cover" />
-                      <div className="p-4">
-                        <h3 className="text-xl font-bold">{pet.breed}</h3>
-                        <p className="text-gray-600">{pet.age}</p>
-                        <p className="text-gray-600">{pet.gender}</p>
-                        <p className="text-gray-800 font-semibold">${pet.price}</p>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
-          )}
-
           <button
               className="md:hidden mt-5 flex justify-center text-blue-600 items-center border-2 rounded-full py-1 px-2 hover:text-blue-950 hover:border-blue-950"
-              onClick={loadMorePets}
             >
               View More
               <svg
@@ -290,7 +253,7 @@ const Home = () => {
             <p className="text-xl text-blue-950 font-bold">Our Products</p>
             <button
               className="hidden md:flex text-blue-600 items-center border-2 rounded-full py-1 px-2 hover:text-blue-950 hover:border-blue-950"
-              onClick={loadMoreProducts}
+              
             >
               View More
               <svg
@@ -310,7 +273,7 @@ const Home = () => {
             </button>
           </div>
 
-          {/* Static Pets Grid: Responsive layout with 1 column (sm), 4 columns (md/lg) */}
+          {/* Pets */}
           {products.length > 0 ? (
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6 bg-gray-100 p-2 rounded-lg">
               {products.slice(0, 8).map((product) => (
@@ -334,31 +297,6 @@ const Home = () => {
             <p>Loading products...</p>
           )}
 
-          {/* Swiper for additional pets, only shown after "View More" is clicked */}
-          {showSwiper2 && (
-            <div className="mt-8">
-              <Swiper spaceBetween={16} slidesPerView={1} onSwiper={(swiper) => console.log(swiper)}>
-                {products.slice(8).map((product) => (
-                  <SwiperSlide key={product.id}>
-                    <div className="bg-white shadow-lg rounded-lg overflow-hidden p-3">
-                      <img src={product.image} alt='petImage' className="w-full h-48 object-cover" />
-                      <div className="p-4">
-                        <h3 className="text-xl font-bold">{product.name}</h3>
-                        <div className='flex space-x-2'>
-                          <p className="text-gray-600 text-[12px]">Product: {product.product}</p>
-                          <p className="text-gray-600 text-[12px]">Size: {product.size}</p>
-                        </div>
-                        <p className="text-gray-800 font-bold">${product.price}</p>
-                        <div>
-                          <p className=''>{product.description}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
-          )}
         </div>
           {/* selles static list */}
         <div className='my-10 hidden md:flex md:flex-col'>
@@ -366,7 +304,7 @@ const Home = () => {
             <p>Proud to be part of <strong className='text-xl text-blue-950'>Pet sellers</strong></p>
             <button
               className="flex text-blue-600 items-center border-2 rounded-full py-1 px-2 hover:text-blue-950 hover:border-blue-950"
-              onClick={loadMoreProducts}
+              
             >
               View More
               <svg
@@ -443,7 +381,7 @@ const Home = () => {
             <p className='text-xl text-blue-950 font-bold'>Usefull Pet Knowledge</p>
             <button
               className="hidden md:flex text-blue-600 items-center border-2 rounded-full py-2 px-2 hover:text-blue-950 hover:border-blue-950"
-              onClick={loadMoreProducts}
+              
             >
               View More
               <svg
@@ -499,7 +437,7 @@ const Home = () => {
           </div>
           <button
         className="flex md:hidden mt-2 justify-center text-blue-600 items-center border-2 rounded-full py-1 px-2 hover:text-blue-950 hover:border-blue-950"
-        onClick={loadMoreProducts}
+        
       >
         View More
         <svg
