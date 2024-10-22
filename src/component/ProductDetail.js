@@ -62,16 +62,6 @@ const ProductDetail = () => {
         <div className="flex flex-col md:flex-row md:border-2 md:p-2 rounded-lg">
           <div className='md:w-1/2 mb-4'>
 
-          {/* <div className='flex justify-between px-4 mt-3 md:hidden'>
-          <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7" />
-          </svg>
-
-          <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-          </svg>
-
-        </div> */}
             {/* Photo banner section */}
             <div className='space-y-2'>
               <Swiper
@@ -88,7 +78,18 @@ const ProductDetail = () => {
               >
                 {pets.map((pet, index) => (
                   <SwiperSlide key={index}>   
-                    <img src={pet} alt='img' className='w-full  md:flex flex-col' />
+                  {   /*<img src={pet} alt='img' className='w-full  md:flex flex-col' /> */}
+                  
+                  <div className='pt-5 h-[350px] flex justify-between px-4 mt-3 ' style={{backgroundImage:`url(${pet})`,backgroundSize:'cover'}}>
+          <svg class="flex flex-col md:hidden w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7" />
+          </svg>
+
+          <svg class="flex flex-col md:hidden w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+
+        </div>
                   </SwiperSlide>
                 ))}
 
